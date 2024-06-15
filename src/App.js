@@ -11,11 +11,13 @@ function App() {
   const [tweets, settweets] = useState([]);
   const [searchedItem, setsearchedItem] = useState("");
   const [searchResult, setsearchResult] = useState([]);
+  const [loading, setloading] = useState(true);
 
   async function getTweets(){
     let rawData = await fetch("https://apex.oracle.com/pls/apex/mayank281/tweets/get");
     let data = await rawData.json();
     settweets(data.items);
+    setloading(false);
   }
 
   useEffect(() => {
@@ -44,7 +46,15 @@ function App() {
             <CreatePost postTweets = {postTweets}/>
             
             
-            <AllTweets tweets = {tweets} />
+            {loading? (
+              <div class="h-100 d-flex justify-content-center align-items-center">
+              <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+              </div>
+            </div>
+            ) : (
+              <AllTweets tweets = {tweets} />
+            )}
 
           </div>
           <Explore searchResult={searchResult}/>
