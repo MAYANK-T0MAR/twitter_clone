@@ -1,5 +1,5 @@
 # Basic Twitter Homepage clone using apex oracle database
-  > **Preview Link** : https://mayank-t0mar.github.io/twitter_clone/
+  > **Preview Link** : https://mayank-t0mar.github.io/twitter_clone/  
 A homepage clone of twitter with apex oracle database, React, Bootstrap features following : 
   
 ## Posting tweet
