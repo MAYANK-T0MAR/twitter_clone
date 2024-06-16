@@ -46,6 +46,31 @@ Check out the live demo [here](https://mayank-t0mar.github.io/twitter_clone/).
     npm start
     ```
 2. Open your browser and navigate to `http://localhost:3000`.
+> [!NOTE]
+> This project uses a specific API for RESTful services connected to an Oracle Apex database. You will need to update the API endpoints in the source code to match your own Oracle Apex database setup. Look for the API URLs in the App.js file and replace them with your own.  
+
+**For fetching the data :**
+```
+  async function getTweets(){
+    let rawData = await fetch("YOUR API ENDPOINT FOR FETCHING THE DATA");
+    let data = await rawData.json();
+    settweets(data.items);
+    setloading(false);
+  }
+```
+**For posting the data :** 
+```
+  async function postTweets(tweet){
+    let current_date = new Date().toLocaleString();
+    let username = "visitor";
+    let userhandle = "@visitor";
+    await fetch(
+      `YOUR API ENDPOINT FOR POSTING THE DATA`, {method: "POST"}
+    );
+    getTweets();
+  }
+```
+
 
 ## Project Structure
 
